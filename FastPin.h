@@ -6,8 +6,8 @@ class FastPin {
 public:
     FastPin(const uint8_t pin, const uint8_t mode, const bool active_low = false);
 
-    void high() { (REG_WRITE(_s_reg, _bit)); }
-    void low() { (REG_WRITE(_c_reg, _bit)); }
+    void high() { REG_WRITE(_s_reg, _bit); }
+    void low() { REG_WRITE(_c_reg, _bit); }
     void write(const bool level) { level ? high() : low(); }
     void on() { _active_low ? low() : high(); }
     void off() { _active_low ? high() : low(); }
